@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio — Eduarda Lopes</title>
+  <meta name="description" content="Portfólio jornalístico de Eduarda Lopes Sanches Queiroz — estudante de Jornalismo na Uniso e estagiária na SECOM da Prefeitura de Sorocaba.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #F7F5F2;
+      --bg2: #EDEBE7;
+      --text: #111111;
+      --text2: #555550;
+      --text3: #999990;
+      --border: #DDDDD8;
+      --border2: #C8C8C2;
+      --gold: #C9A84C;
+      --radius: 6px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141414;
+        --bg2: #1E1E1E;
+        --text: #F0EEE9;
+        --text2: #A8A89F;
+        --text3: #666660;
+        --border: #2C2C2A;
+        --border2: #3A3A38;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 48px 24px 80px;
+    }
+    .portfolio {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      border-bottom: 2.5px solid var(--text);
+      padding-bottom: 14px;
+      margin-bottom: 8px;
+    }
+    .masthead-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .masthead-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+    .masthead-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .masthead-tagline {
+      font-size: 11px;
+      color: var(--text2);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      border-top: 0.5px solid var(--border);
+      padding-top: 8px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .masthead-tagline a {
+      color: var(--text2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s;
+    }
+    .masthead-tagline a:hover { color: var(--gold); }
+    .masthead-tagline span { display: flex; align-items: center; gap: 4px; }
+
+    .accent-bar {
+      height: 3px;
+      background: var(--gold);
+      width: 48px;
+      margin: 12px 0 24px;
+    }
+
+    /* SOBRE MIM */
+    .sobre {
+      background: var(--bg2);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+    }
+    .sobre p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text2);
+    }
+
+    /* SEÇÕES */
+    .section-wrap { margin-bottom: 10px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: var(--bg2);
+      color: var(--text2);
+      border: 0.5px solid var(--border);
+    }
+
+    /* FILTROS */
+    .filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .filter-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 2px;
+      border: 0.5px solid var(--border2);
+      background: transparent;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .filter-btn:hover { background: var(--bg2); color: var(--text); }
+    .filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* GRID DE CARDS */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .work-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .work-card:hover {
+      border-color: var(--border2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .work-card.hidden { display: none; }
+
+    /* TIPO */
+    .work-type {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .type-texto    { background: #EEF0F8; color: #3B4A8C; }
+    .type-radio    { background: #F5EDE4; color: #8C5A2A; }
+    .type-audiovisual { background: #E8F3ED; color: #2A6B44; }
+    .type-fotografias { background: #F3EEF5; color: #6A3B8C; }
+    @media (prefers-color-scheme: dark) {
+      .type-texto    { background: #1E2340; color: #8A9EE0; }
+      .type-radio    { background: #2A1E12; color: #D09060; }
+      .type-audiovisual { background: #0E2418; color: #60B880; }
+      .type-fotografias { background: #1E0E2A; color: #B07AD0; }
+    }
+
+    .work-date  { font-size: 10px; color: var(--text3); margin-bottom: 6px; }
+    .work-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .work-desc  { font-size: 12px; color: var(--text2); line-height: 1.55; margin-bottom: 10px; }
+    .work-footer {
+      font-size: 11px;
+      color: var(--text3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .origin-pill {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 2px;
+      border: 0.5px solid var(--border);
+      color: var(--text3);
+      background: var(--bg2);
+    }
+    .ext-link {
+      font-size: 11px;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .ext-link:hover { text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* TODOS */
+    .all-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .count-badge {
+      font-size: 11px;
+      color: var(--text3);
+      background: var(--bg2);
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border);
+    }
+    .gold-accent { color: var(--gold); }
+
+    .all-main-filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .main-filter-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 2px;
+      border: 0.5px solid var(--border2);
+      background: transparent;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .main-filter-btn:hover { background: var(--bg2); color: var(--text); }
+    .main-filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .all-sub-filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .sub-filter-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 2px;
+      border: 0.5px solid var(--border2);
+      background: transparent;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sub-filter-btn:hover { background: var(--bg2); color: var(--text); }
+    .sub-filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* RODAPÉ */
+    .footer {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 0.5px solid var(--border);
+      font-size: 11px;
+      color: var(--text3);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 28px 16px 60px; }
+      .masthead-name { font-size: 34px; }
+      .works-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-top">
+      <span class="masthead-label">Portfólio Jornalístico</span>
+      <span class="masthead-label">Sorocaba · SP · 2026</span>
+    </div>
+    <div class="masthead-name">Eduarda Lopes</div>
+    <div class="masthead-tagline">
+      <a href="mailto:eduardalopessan@gmail.com"><i class="ti ti-mail"></i> eduardalopessan@gmail.com</a>
+      <a href="tel:+5515992644297"><i class="ti ti-device-mobile"></i> (15) 99264-4297</a>
+      <a href="https://www.linkedin.com/in/eduarda-lopes-7a95732b7" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      <span><i class="ti ti-school"></i> Jornalismo · Uniso · 8º sem.</span>
+    </div>
+  </div>
+  <div class="accent-bar"></div>
+
+  <!-- SOBRE MIM -->
+  <div class="sobre">
+    <p>Estudante de Jornalismo da Uniso, atualmente estagiária na Secretaria de Comunicação da Prefeitura de Sorocaba. Possuo experiência em produção textual, radiojornalismo, audiovisual e cobertura fotográfica, com interesse em atuar na produção e apresentação de produtos audiovisuais.</p>
+  </div>
+
+  <!-- GRADUAÇÃO -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Trabalhos da Graduação</div>
+      <span class="section-badge">Uniso</span>
+    </div>
+    <div class="filters" id="grad-filters">
+      <button class="filter-btn active" onclick="filterSection('grad','todos')" data-type="todos">Todos</button>
+      <button class="filter-btn" onclick="filterSection('grad','texto')" data-type="texto"><i class="ti ti-file-text"></i> Texto</button>
+      <button class="filter-btn" onclick="filterSection('grad','radio')" data-type="radio"><i class="ti ti-radio"></i> Rádio</button>
+      <button class="filter-btn" onclick="filterSection('grad','audiovisual')" data-type="audiovisual"><i class="ti ti-video"></i> Audiovisual</button>
+      <button class="filter-btn" onclick="filterSection('grad','fotografias')" data-type="fotografias"><i class="ti ti-camera"></i> Fotografias</button>
+    </div>
+    <div class="works-grid" id="grad-grid">
+      <div class="work-card" data-type="audiovisual" data-origin="grad"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-date">2026 · Telejornalismo · Uniso</div><div class="work-title">Jornal Uniso em Foco</div><div class="work-desc">Trabalho de telejornalismo produzido em grupo: atuei como roteirista geral e âncora do telejornal universitário.</div><a class="ext-link" href="https://www.youtube.com/live/a_M4g1y707M" target="_blank"><i class="ti ti-brand-youtube"></i> Assistir no YouTube</a></div>
+      <div class="work-card" data-type="radio" data-origin="grad"><span class="work-type type-radio"><i class="ti ti-radio"></i> Rádio</span><div class="work-date">out. 2025 – mai. 2026 · Spotify</div><div class="work-title">Parágrafo Sonoro</div><div class="work-desc">Podcast próprio sobre literatura com 6 episódios: debates sobre leitura, entrevistas com escritores e bibliotecária.</div><a class="ext-link" href="https://open.spotify.com/show/1C5R4Hr5JwYjyWU24QHH5H" target="_blank"><i class="ti ti-brand-spotify"></i> Ouvir no Spotify</a></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">6 nov. 2023 · FOCAS</div><div class="work-title">Estudantes de biologia da Uniso desenvolvem inseticida natural</div><div class="work-desc">Projeto universitário utiliza o cravo de defunto na produção de inseticida natural para controle de pragas.</div><a class="ext-link" href="https://focas.uniso.br/index.php/2023/11/06/estudantes-de-biologia-da-uniso-desenvolvem-inseticida-natural/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">27 fev. 2025 · FOCAS</div><div class="work-title">Climatizadores da Uniso têm ativação próxima</div><div class="work-desc">Reportagem sobre a fase final de ativação dos climatizadores na Cidade Universitária.</div><a class="ext-link" href="https://focas.uniso.br/index.php/2025/02/27/climatizadores-da-uniso-tem-ativacao-proxima/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">23 mar. 2026 · FOCAS</div><div class="work-title">Coordenador do projeto Cágado-da-serra conversa com alunos de jornalismo</div><div class="work-desc">Cobertura da entrevista coletiva com o professor Thiago Marques sobre a espécie ameaçada de extinção.</div><a class="ext-link" href="https://focas.uniso.br/index.php/2026/03/23/coordenador-do-projeto-cagado-da-serra-conversa-com-alunos-de-jornalismo/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">28 mai. 2026 · FOCAS</div><div class="work-title">Estudantes de jornalismo fazem ativação na Uniso para divulgação do Projeto Cágado-da-Serra</div><div class="work-desc">Reportagem sobre ação de divulgação científica com QR codes e quiz sobre o Cágado-da-Serra nos blocos da Uniso.</div><a class="ext-link" href="https://focas.uniso.br/index.php/2026/05/28/estudantes-de-jornalismo-fazem-ativacao-na-uniso-para-divulgacao-do-projeto-cagado-da-serra/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="radio" data-origin="grad"><span class="work-type type-radio"><i class="ti ti-radio"></i> Rádio</span><div class="work-title">Rádio Jornal Inclusão — Uniso</div><div class="work-desc">Participação como repórter no programa radiofônico da universidade.</div><a class="ext-link" href="https://open.spotify.com/show/7mrhmxxlv7V7IfnIzi9Ffm" target="_blank"><i class="ti ti-brand-spotify"></i> Ouvir no Spotify</a></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-title">Agência Experimental — Matérias</div><div class="work-desc">Textos jornalísticos publicados na agência experimental da Uniso.</div><div class="work-footer"><span>Agência Exp.</span></div></div>
+      <div class="work-card" data-type="audiovisual" data-origin="grad"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-title">Documentário — Escotismo em Sorocaba</div><div class="work-desc">Participação na elaboração do roteiro e produção de documentário sobre o movimento escoteiro em Sorocaba.</div><div class="work-footer"><span>Audiovisual · Uniso</span></div></div>
+      <div class="work-card" data-type="texto" data-origin="grad"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-title">Portal Hicampi — Redação</div><div class="work-desc">Produção de conteúdo editorial para o portal criado pela turma no componente de comunicação digital.</div><div class="work-footer"><span>Com. Digital · Uniso</span></div></div>
+      <div class="work-card" data-type="radio" data-origin="grad"><span class="work-type type-radio"><i class="ti ti-radio"></i> Rádio</span><div class="work-title">Crimes Noticiados</div><div class="work-desc">Podcast sobre jornalismo investigativo: episódios abordando crimes noticiados e ética na apuração.</div><a class="ext-link" href="https://open.spotify.com/show/2b9P3xfRG3PlhmKo15JUZY" target="_blank"><i class="ti ti-brand-spotify"></i> Ouvir no Spotify</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ESTÁGIO -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-title">Trabalhos do Estágio</div>
+      <span class="section-badge">SECOM · Prefeitura de Sorocaba</span>
+    </div>
+    <div class="filters" id="estagio-filters">
+      <button class="filter-btn active" onclick="filterSection('estagio','todos')" data-type="todos">Todos</button>
+      <button class="filter-btn" onclick="filterSection('estagio','texto')" data-type="texto"><i class="ti ti-file-text"></i> Texto</button>
+      <button class="filter-btn" onclick="filterSection('estagio','radio')" data-type="radio"><i class="ti ti-radio"></i> Rádio</button>
+      <button class="filter-btn" onclick="filterSection('estagio','audiovisual')" data-type="audiovisual"><i class="ti ti-video"></i> Audiovisual</button>
+      <button class="filter-btn" onclick="filterSection('estagio','fotografias')" data-type="fotografias"><i class="ti ti-camera"></i> Fotografias</button>
+    </div>
+    <div class="works-grid" id="estagio-grid">
+      <div class="work-card" data-type="radio" data-origin="estagio"><span class="work-type type-radio"><i class="ti ti-radio"></i> Rádio</span><div class="work-date">2025–2026 · SECOM</div><div class="work-title">WebRádio Sorocaba — Programa de Notícias</div><div class="work-desc">Participação na gravação e edição do programa de notícias da Prefeitura de Sorocaba.</div><a class="ext-link" href="https://www.youtube.com/watch?v=x9vAIPtOoUs" target="_blank"><i class="ti ti-brand-youtube"></i> Assistir no YouTube</a></div>
+      <div class="work-card" data-type="fotografias" data-origin="estagio"><span class="work-type type-fotografias"><i class="ti ti-camera"></i> Fotografias</span><div class="work-date">mai. 2026 · Sedu</div><div class="work-title">E.M. Prof.ª Norma Justa Dall'Ara — Ação de Copa</div><div class="work-desc">Cobertura fotográfica da ação de pintura em via pública com o tema da Copa, envolvendo alunos, educadores e a comunidade.</div><a class="ext-link" href="https://noticias.sorocaba.sp.gov.br/e-m-prof-a-norma-justa-dallara-realiza-acao-de-pintura-em-via-publica-com-o-tema-da-copa-e-envolve-alunos-educadores-e-a-comunidade/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="fotografias" data-origin="estagio"><span class="work-type type-fotografias"><i class="ti ti-camera"></i> Fotografias</span><div class="work-date">16 abr. 2026 · Sedu</div><div class="work-title">Alunos das escolas municipais receberão pão com creme de avelã</div><div class="work-desc">Cobertura fotográfica da iniciativa inédita da Sedu de incluir pão com creme de avelã na merenda escolar.</div><a class="ext-link" href="https://noticias.sorocaba.sp.gov.br/alunos-de-todas-as-escolas-municipais-de-sorocaba-receberao-pao-com-creme-de-avela/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="texto" data-origin="estagio"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">12 mai. 2026 · Secult</div><div class="work-title">Oficina "Quem sou eu?" na Biblioteca Municipal</div><div class="work-desc">Release sobre a oficina de colagem gratuita na Biblioteca Municipal Jorge Guilherme Senger.</div><a class="ext-link" href="https://noticias.sorocaba.sp.gov.br/oficina-de-colagem-quem-sou-eu-e-atracao-gratuita-na-biblioteca-municipal-nesta-sexta-feira-15/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="texto" data-origin="estagio"><span class="work-type type-texto"><i class="ti ti-file-text"></i> Texto</span><div class="work-date">11 mai. 2026 · Secult</div><div class="work-title">Oficina de Mulinhas Tropeiras na Biblioteca Infantil</div><div class="work-desc">Release sobre a oficina gratuita para crianças na 59ª Semana do Tropeiro.</div><a class="ext-link" href="https://noticias.sorocaba.sp.gov.br/oficina-de-mulinhas-tropeiras-e-atracao-na-biblioteca-infantil-municipal-nesta-quarta-feira-13/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="fotografias" data-origin="estagio"><span class="work-type type-fotografias"><i class="ti ti-camera"></i> Fotografias</span><div class="work-date">27 fev. 2026 · Semul</div><div class="work-title">Chá das Rosas — Secretaria da Mulher</div><div class="work-desc">Cobertura fotográfica do evento de acolhimento a pacientes oncológicas promovido pela Semul.</div><a class="ext-link" href="https://noticias.sorocaba.sp.gov.br/nova-edicao-do-cha-das-rosas-ressalta-sentimento-de-esperanca-e-autocuidado/" target="_blank"><i class="ti ti-external-link"></i> Ver publicação</a></div>
+      <div class="work-card" data-type="audiovisual" data-origin="estagio"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-date">2025–2026 · SECOM</div><div class="work-title">Divulga Pet — Peças Audiovisuais</div><div class="work-desc">Edição e produção de vídeos institucionais para a campanha de adoção responsável.</div><div class="work-footer"><span>SECOM · Prefeitura</span></div></div>
+      <div class="work-card" data-type="audiovisual" data-origin="estagio"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-date">2026 · Zoo Quinzinho de Barros</div><div class="work-title">A história do Zoológico Quinzinho de Barros</div><div class="work-desc">Vídeo institucional sobre a origem e trajetória do Parque Zoológico Municipal Quinzinho de Barros em Sorocaba.</div><a class="ext-link" href="https://vt.tiktok.com/ZSQDQXDrH/" target="_blank"><i class="ti ti-brand-tiktok"></i> Ver no TikTok</a></div>
+      <div class="work-card" data-type="audiovisual" data-origin="estagio"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-date">2026 · Zoo Quinzinho de Barros</div><div class="work-title">Iuri e Iara — os hipopótamos do Quinzinho</div><div class="work-desc">Vídeo sobre o casal de hipopótamos Iuri e Iara, moradores do Parque Zoológico Municipal de Sorocaba.</div><a class="ext-link" href="https://vt.tiktok.com/ZSQDQuroJ/" target="_blank"><i class="ti ti-brand-tiktok"></i> Ver no TikTok</a></div>
+      <div class="work-card" data-type="audiovisual" data-origin="estagio"><span class="work-type type-audiovisual"><i class="ti ti-video"></i> Audiovisual</span><div class="work-date">2026 · Zoo Quinzinho de Barros</div><div class="work-title">Aniversário da filhote de Muriqui-do-Sul</div><div class="work-desc">Vídeo em celebração ao aniversário da filhote de muriqui-do-sul, espécie criticamente ameaçada de extinção.</div><a class="ext-link" href="https://vt.tiktok.com/ZSQDQCneB/" target="_blank"><i class="ti ti-brand-tiktok"></i> Ver no TikTok</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TODOS -->
+  <div class="all-header">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="section-title"><span class="gold-accent">★</span> Todas as publicações</div>
+    </div>
+    <span class="count-badge" id="all-count">—</span>
+  </div>
+  <div class="all-main-filters" id="all-origin-filters">
+    <button class="main-filter-btn active" onclick="setOrigin('none')" data-origin="none">Selecione uma origem</button>
+    <button class="main-filter-btn" onclick="setOrigin('grad')" data-origin="grad"><i class="ti ti-school"></i> Graduação</button>
+    <button class="main-filter-btn" onclick="setOrigin('estagio')" data-origin="estagio"><i class="ti ti-building"></i> Estágio</button>
+    <button class="main-filter-btn" onclick="setOrigin('all')" data-origin="all">Todos</button>
+  </div>
+  <div class="all-sub-filters" id="all-type-filters" style="display:none;">
+    <button class="sub-filter-btn active" onclick="setType('todos')" data-type="todos">Todos os tipos</button>
+    <button class="sub-filter-btn" onclick="setType('texto')" data-type="texto"><i class="ti ti-file-text"></i> Texto</button>
+    <button class="sub-filter-btn" onclick="setType('radio')" data-type="radio"><i class="ti ti-radio"></i> Rádio</button>
+    <button class="sub-filter-btn" onclick="setType('audiovisual')" data-type="audiovisual"><i class="ti ti-video"></i> Audiovisual</button>
+    <button class="sub-filter-btn" onclick="setType('fotografias')" data-type="fotografias"><i class="ti ti-camera"></i> Fotografias</button>
+  </div>
+  <div class="works-grid" id="all-grid"></div>
+
+  <div class="footer">Eduarda Lopes · Portfólio Jornalístico · 2026</div>
+</div>
+
+<script>
+  var allOrigin = 'none', allType = 'todos';
+  var typeIcons  = { texto:'ti-file-text', radio:'ti-radio', audiovisual:'ti-video', fotografias:'ti-camera' };
+  var typeLabels = { texto:'Texto', radio:'Rádio', audiovisual:'Audiovisual', fotografias:'Fotografias' };
+  var originLabels = { grad:'Graduação', estagio:'Estágio', todos_only:'Estágio' };
+
+  var worksData = [
+    { origin:'grad', type:'audiovisual', title:'Jornal Uniso em Foco', desc:'Trabalho de telejornalismo: atuei como roteirista geral e âncora do telejornal universitário.', meta:'Telejornalismo · Uniso', date:'2026', url:'https://www.youtube.com/live/a_M4g1y707M', linkLabel:'<i class="ti ti-brand-youtube"></i> Assistir no YouTube' },
+    { origin:'grad', type:'radio', title:'Parágrafo Sonoro', desc:'Podcast próprio sobre literatura com 6 episódios: debates sobre leitura, entrevistas com escritores e bibliotecária.', meta:'Spotify · out. 2025–mai. 2026', date:'out. 2025 – mai. 2026', url:'https://open.spotify.com/show/1C5R4Hr5JwYjyWU24QHH5H', linkLabel:'<i class="ti ti-brand-spotify"></i> Ouvir no Spotify' },
+    { origin:'grad', type:'texto', title:'Estudantes de biologia da Uniso desenvolvem inseticida natural', desc:'Projeto universitário utiliza o cravo de defunto na produção de inseticida natural.', meta:'FOCAS · nov. 2023', date:'6 nov. 2023', url:'https://focas.uniso.br/index.php/2023/11/06/estudantes-de-biologia-da-uniso-desenvolvem-inseticida-natural/' },
+    { origin:'grad', type:'texto', title:'Climatizadores da Uniso têm ativação próxima', desc:'Reportagem sobre a fase final de ativação dos climatizadores na Cidade Universitária.', meta:'FOCAS · fev. 2025', date:'27 fev. 2025', url:'https://focas.uniso.br/index.php/2025/02/27/climatizadores-da-uniso-tem-ativacao-proxima/' },
+    { origin:'grad', type:'texto', title:'Coordenador do projeto Cágado-da-serra conversa com alunos de jornalismo', desc:'Cobertura da entrevista coletiva com o professor Thiago Marques sobre a espécie ameaçada de extinção.', meta:'FOCAS · mar. 2026', date:'23 mar. 2026', url:'https://focas.uniso.br/index.php/2026/03/23/coordenador-do-projeto-cagado-da-serra-conversa-com-alunos-de-jornalismo/' },
+    { origin:'grad', type:'texto', title:'Estudantes de jornalismo fazem ativação na Uniso para divulgação do Projeto Cágado-da-Serra', desc:'Reportagem sobre ação de divulgação científica com QR codes e quiz sobre o Cágado-da-Serra.', meta:'FOCAS · mai. 2026', date:'28 mai. 2026', url:'https://focas.uniso.br/index.php/2026/05/28/estudantes-de-jornalismo-fazem-ativacao-na-uniso-para-divulgacao-do-projeto-cagado-da-serra/' },
+    { origin:'grad', type:'radio', title:'Rádio Jornal Inclusão — Uniso', desc:'Participação como repórter no programa radiofônico da universidade.', meta:'Uniso FM', date:'', url:'https://open.spotify.com/show/7mrhmxxlv7V7IfnIzi9Ffm', linkLabel:'<i class="ti ti-brand-spotify"></i> Ouvir no Spotify' },
+    { origin:'grad', type:'texto', title:'Agência Experimental — Matérias', desc:'Textos jornalísticos publicados na agência experimental da Uniso.', meta:'Agência Exp.', date:'', url:'' },
+    { origin:'grad', type:'audiovisual', title:'Documentário — Escotismo em Sorocaba', desc:'Participação na elaboração do roteiro e produção de documentário sobre o movimento escoteiro em Sorocaba.', meta:'Audiovisual · Uniso', date:'', url:'' },
+    { origin:'grad', type:'texto', title:'Portal Hicampi — Redação', desc:'Produção de conteúdo editorial para o portal criado pela turma.', meta:'Com. Digital · Uniso', date:'', url:'' },
+    { origin:'grad', type:'radio', title:'Crimes Noticiados', desc:'Podcast sobre jornalismo investigativo: episódios abordando crimes noticiados e ética na apuração.', meta:'Jornalismo Investigativo', date:'', url:'https://open.spotify.com/show/2b9P3xfRG3PlhmKo15JUZY', linkLabel:'<i class="ti ti-brand-spotify"></i> Ouvir no Spotify' },
+    { origin:'estagio', type:'radio', title:'WebRádio Sorocaba — Programa de Notícias', desc:'Participação na gravação e edição do programa de notícias da Prefeitura de Sorocaba.', meta:'SECOM', date:'2025–2026', url:'https://www.youtube.com/watch?v=x9vAIPtOoUs', linkLabel:'<i class="ti ti-brand-youtube"></i> Assistir no YouTube' },
+    { origin:'estagio', type:'fotografias', title:"E.M. Prof.ª Norma Justa Dall'Ara — Ação de Copa", desc:'Cobertura fotográfica da ação de pintura em via pública com o tema da Copa, envolvendo alunos, educadores e a comunidade.', meta:'Sedu', date:'mai. 2026', url:'https://noticias.sorocaba.sp.gov.br/e-m-prof-a-norma-justa-dallara-realiza-acao-de-pintura-em-via-publica-com-o-tema-da-copa-e-envolve-alunos-educadores-e-a-comunidade/' },
+    { origin:'estagio', type:'fotografias', title:'Alunos das escolas municipais receberão pão com creme de avelã', desc:'Cobertura fotográfica da iniciativa inédita da Sedu de incluir pão com creme de avelã na merenda escolar.', meta:'Sedu', date:'16 abr. 2026', url:'https://noticias.sorocaba.sp.gov.br/alunos-de-todas-as-escolas-municipais-de-sorocaba-receberao-pao-com-creme-de-avela/' },
+    { origin:'estagio', type:'texto', title:'Oficina "Quem sou eu?" na Biblioteca Municipal', desc:'Release sobre a oficina de colagem gratuita na Biblioteca Municipal.', meta:'Secult', date:'12 mai. 2026', url:'https://noticias.sorocaba.sp.gov.br/oficina-de-colagem-quem-sou-eu-e-atracao-gratuita-na-biblioteca-municipal-nesta-sexta-feira-15/' },
+    { origin:'estagio', type:'texto', title:'Oficina de Mulinhas Tropeiras na Biblioteca Infantil', desc:'Release sobre a oficina gratuita para crianças na 59ª Semana do Tropeiro.', meta:'Secult', date:'11 mai. 2026', url:'https://noticias.sorocaba.sp.gov.br/oficina-de-mulinhas-tropeiras-e-atracao-na-biblioteca-infantil-municipal-nesta-quarta-feira-13/' },
+    { origin:'estagio', type:'fotografias', title:'Chá das Rosas — Secretaria da Mulher', desc:'Cobertura fotográfica do evento de acolhimento a pacientes oncológicas.', meta:'Semul', date:'27 fev. 2026', url:'https://noticias.sorocaba.sp.gov.br/nova-edicao-do-cha-das-rosas-ressalta-sentimento-de-esperanca-e-autocuidado/' },
+    { origin:'estagio', type:'audiovisual', title:'Divulga Pet — Peças Audiovisuais', desc:'Edição e produção de vídeos institucionais para a campanha de adoção responsável.', meta:'SECOM · Prefeitura', date:'2025–2026', url:'' },
+    { origin:'estagio', type:'audiovisual', title:'A história do Zoológico Quinzinho de Barros', desc:'Vídeo institucional sobre a origem e trajetória do Parque Zoológico Municipal Quinzinho de Barros.', meta:'Sema · Zoo', date:'2026', url:'https://vt.tiktok.com/ZSQDQXDrH/', linkLabel:'<i class="ti ti-brand-tiktok"></i> Ver no TikTok' },
+    { origin:'estagio', type:'audiovisual', title:'Iuri e Iara — os hipopótamos do Quinzinho', desc:'Vídeo sobre o casal de hipopótamos Iuri e Iara, moradores do Parque Zoológico Municipal de Sorocaba.', meta:'Sema · Zoo', date:'2026', url:'https://vt.tiktok.com/ZSQDQuroJ/', linkLabel:'<i class="ti ti-brand-tiktok"></i> Ver no TikTok' },
+    { origin:'estagio', type:'audiovisual', title:'Aniversário da filhote de Muriqui-do-Sul', desc:'Vídeo em celebração ao aniversário da filhote de muriqui-do-sul, espécie criticamente ameaçada de extinção.', meta:'Sema · Zoo', date:'2026', url:'https://vt.tiktok.com/ZSQDQCneB/', linkLabel:'<i class="ti ti-brand-tiktok"></i> Ver no TikTok' },
+    { origin:'todos_only', type:'texto', title:'Campanha Divulga Pet — Criação de Conteúdo', desc:'Criação, edição e controle de conteúdos para a campanha de adoção responsável da Prefeitura de Sorocaba.', meta:'SECOM', date:'2025–2026', url:'' },
+    { origin:'todos_only', type:'texto', title:'Copa Feminina de Futsal — Sesc Sorocaba', desc:'Reportagens e cobertura jornalística do evento, com entrevistas a torcedoras e jogadoras.', meta:'Sesc Sorocaba', date:'2025–2026', url:'' },
+  ];
+
+  function filterSection(section, type) {
+    document.querySelectorAll('#' + section + '-grid .work-card').forEach(function(c) {
+      c.classList.toggle('hidden', type !== 'todos' && c.dataset.type !== type);
+    });
+    document.querySelectorAll('#' + section + '-filters .filter-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.type === type);
+    });
+  }
+
+  function setOrigin(origin) {
+    allOrigin = origin; allType = 'todos';
+    document.querySelectorAll('#all-origin-filters .main-filter-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.origin === origin);
+    });
+    var sf = document.getElementById('all-type-filters');
+    sf.style.display = origin === 'none' ? 'none' : 'flex';
+    sf.querySelectorAll('.sub-filter-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.type === 'todos');
+    });
+    renderAll();
+  }
+
+  function setType(type) {
+    allType = type;
+    document.querySelectorAll('#all-type-filters .sub-filter-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.type === type);
+    });
+    renderAll();
+  }
+
+  function renderAll() {
+    var grid = document.getElementById('all-grid');
+    grid.innerHTML = '';
+    if (allOrigin === 'none') { document.getElementById('all-count').textContent = '—'; return; }
+    var filtered = worksData.filter(function(w) {
+      var originMatch;
+      if (w.origin === 'todos_only') {
+        originMatch = allOrigin === 'all' || allOrigin === 'estagio';
+      } else {
+        originMatch = allOrigin === 'all' || w.origin === allOrigin;
+      }
+      return originMatch && (allType === 'todos' || w.type === allType);
+    });
+    document.getElementById('all-count').textContent = filtered.length + ' trabalho' + (filtered.length !== 1 ? 's' : '');
+    filtered.forEach(function(w) {
+      var card = document.createElement('div');
+      card.className = 'work-card';
+      var label = w.linkLabel || '<i class="ti ti-external-link"></i> Ver publicação';
+      var linkHtml = w.url ? '<a class="ext-link" href="' + w.url + '" target="_blank">' + label + '</a>' : '';
+      var dateHtml = w.date ? '<div class="work-date">' + w.date + '</div>' : '';
+      card.innerHTML =
+        '<span class="work-type type-' + w.type + '"><i class="ti ' + typeIcons[w.type] + '"></i> ' + typeLabels[w.type] + '</span>' +
+        dateHtml +
+        '<div class="work-title">' + w.title + '</div>' +
+        '<div class="work-desc">' + w.desc + '</div>' +
+        '<div class="work-footer"><span>' + w.meta + '</span><span class="origin-pill">' + originLabels[w.origin] + '</span></div>' +
+        linkHtml;
+      grid.appendChild(card);
+    });
+  }
+  renderAll();
+</script>
+</body>
+</html>
